@@ -32,11 +32,14 @@ val digitMap = Map(
   "nine" -> 9,
 ) ++ (1 to 9).map(digit => digit.toString -> digit)
 
-@tailrec
-def allIndexesOf(str: String, contained: String, startIndex: Int = 0, acc: List[Int] = Nil): List[Int] =
-  str.indexOf(contained, startIndex) match
-    case -1 => acc
-    case n => allIndexesOf(str, contained, startIndex + 1, n :: acc)
+def allIndexesOf(str: String, contained: String): List[Int] =
+  List.unfold(0) { startIndex =>
+    str.indexOf(contained, startIndex) match
+      case -1 => None
+      case i => Some((i, i + 1))
+  }
+
+
 
 @main
 def exercice2() =
