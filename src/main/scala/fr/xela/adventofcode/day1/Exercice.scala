@@ -32,10 +32,6 @@ val digitMap = Map(
   "nine" -> 9,
 ) ++ (1 to 9).map(digit => digit.toString -> digit)
 
-
-case class NumberFoldState(str: String, numbers: List[Int])
-
-
 @tailrec
 def allIndexesOf(str: String, contained: String, startIndex: Int = 0, acc: List[Int] = Nil): List[Int] =
   str.indexOf(contained, startIndex) match
