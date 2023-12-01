@@ -3,8 +3,8 @@ package fr.xela.adventofcode.day1
 import cats.effect.IO
 import cats.effect.unsafe.implicits.global
 import fs2.io.file.*
-
 import scala.annotation.tailrec
+
 @main
 def exercice1() =
   Files[IO].readUtf8Lines(Path("files/day1.txt"))
